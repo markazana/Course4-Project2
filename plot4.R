@@ -28,11 +28,11 @@ library("plyr")
 intersect(names(NEI),names(SCC)) # should intersect on SCC
 
 ## Process the data
-coalIdx <- grepl("[Cc]oal",SCC$Short.Name)
+coalIdx <- grepl("[Cc]oal",SCC$EI.Sector)
 coalScc <- SCC[coalIdx,]
 m1 <- join_all(list(NEI,coalScc),type = "right") # filter non-coal results (faster)
 m1 <- m1[!is.na(m1$Emissions),] # remove NA values
-nrow(m1) # 53400
+nrow(m1) # 28480
 spNEI1 <- ddply(m1,.(year),summarize,emissions=sum(Emissions))
 
 ## Plot graph

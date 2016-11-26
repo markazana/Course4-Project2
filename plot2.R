@@ -28,6 +28,7 @@ SCC <- readRDS("Source_Classification_Code.rds")
 baltimore <- subset(NEI, fips=="24510")
 spbaltimore <- split(baltimore$Emissions,baltimore$year)
 spcbaltimore <- lapply(spbaltimore, sum)
+# aggregate(baltimore$Emissions,by=list(baltimore$year),sum) # can also use this 
 
 library(plyr)
 spNEI1 <- ddply(baltimore,.(year),summarize,emissions=sum(Emissions))
@@ -40,6 +41,6 @@ spNEI1 <- ddply(baltimore,.(year),summarize,emissions=sum(Emissions))
 png(file = "plot2.png") ## Open writing device; plot in working directory
 par(mar = c(4,4,2,2))
 
-with(spNEI1, plot(year, emissions, type = "l",xlab = "Year", ylab="PM2.5", main = "Emissions by year in Baltimore"))
+with(spNEI1, plot(year, emissions, type = "l",xlab = "Year", ylab="PM2.5", ylim = c(1500,3500), main = "Emissions by year in Baltimore"))
 
 dev.off() ## Close the file device

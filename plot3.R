@@ -78,6 +78,7 @@ library("ggplot2")
 png(file = "plot3.png") ## Open writing device; plot in working directory
 par(mar = c(4,4,2,2))
 
+## Only POINT type is generally trending upwards
 qplot(year, pm2.5, color = type, data=df2) + 
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Year", y = expression("PM " * 2.5)) + 

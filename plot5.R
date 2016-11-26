@@ -28,16 +28,17 @@ intersect(names(NEI),names(SCC)) # should intersect on SCC
 
 ## Process the data
 ## Motor Vehicle sources
-motorVehicleIdx <- grepl("[Mm]otor [Vv]ehicle",SCC$Short.Name)
+motorVehicleIdx <- grepl("[Vv]ehicle",SCC$EI.Sector)
 motorVehicleScc <- SCC[motorVehicleIdx,]
 m1 <- join_all(list(NEI,motorVehicleScc),type = "right") # filter non-vehicle results (faster)
 m1 <- m1[!is.na(m1$Emissions),] # remove NA values
-nrow(m1) # 2073
+nrow(m1) # 3183602
 
 ## In Baltimore
 baltimore <- subset(m1, fips=="24510")
 spbaltimore <- split(baltimore$Emissions,baltimore$year)
 spcbaltimore <- lapply(spbaltimore, sum)
+# aggregate(baltimore$Emissions,baltimore$year,sum) # can also use this 
 str(spcbaltimore)
 
 xlab3 <- c("year","emissions")
