@@ -24,19 +24,13 @@ PM2.5 Emissions Data (summarySCC_PM25.rds): This file contains a data frame with
 |20 |09001 |10200504  |PM25-PRI     |0.388 |POINT |1999|
 |24 |09001 |10200602  |PM25-PRI     |1.490 |POINT |1999|
 
-<b>fips</b>: A five-digit number (represented as a string) indicating the U.S. county
-
-<b>SCC</b>: The name of the source as indicated by a digit string (see source code classification table)
-
-<b>Pollutant</b>: A string indicating the pollutant
-
-<b>Emissions</b>: Amount of PM2.5 emitted, in tons
-
-<b>type</b>: The type of source (point, non-point, on-road, or non-road)
-
-<b>year</b>: The year of emissions recorded
-
-<b>Source Classification Code Table (Source_Classification_Code.rds)</b>: This table provides a mapping from the SCC digit strings in the Emissions table to the actual name of the PM2.5 source. The sources are categorized in a few different ways from more general to more specific and you may choose to explore whatever categories you think are most useful. For example, source “10100101” is known as “Ext Comb /Electric Gen /Anthracite Coal /Pulverized Coal”.
+<b>fips</b>: A five-digit number (represented as a string) indicating the U.S. county<br>
+<b>SCC</b>: The name of the source as indicated by a digit string (see source code classification table)<br>
+<b>Pollutant</b>: A string indicating the pollutant<br>
+<b>Emissions</b>: Amount of PM2.5 emitted, in tons<br>
+<b>type</b>: The type of source (point, non-point, on-road, or non-road)<br>
+<b>year</b>: The year of emissions recorded<br>
+<b>Source Classification Code Table (Source_Classification_Code.rds)</b>: This table provides a mapping from the SCC digit strings in the Emissions table to the actual name of the PM2.5 source. The sources are categorized in a few different ways from more general to more specific and you may choose to explore whatever categories you think are most useful. For example, source “10100101” is known as “Ext Comb /Electric Gen /Anthracite Coal /Pulverized Coal”.<br>
 
 You can read each of the two files using the readRDS() function in R. For example, reading in each file can be done with the following code:
 
